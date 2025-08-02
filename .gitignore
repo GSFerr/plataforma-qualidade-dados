@@ -1,0 +1,23 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.coverage
+
+# Environment variables
+.env
+
+# Data
+data/raw/*.csv # Ou .json, .parquet
+data/processed/
+data/output/
+*.log
+
+# VS Code
+.vscode/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
