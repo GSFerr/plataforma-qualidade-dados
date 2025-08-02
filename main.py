@@ -2,6 +2,7 @@
 import logging
 from src.utils.db_utils import test_db_connection
 from src.data_generation.generator import generate_transactions_data # Importe o gerador
+from src.ingestion.ingestor import ingest_data_to_db # Importe o ingestor
 
 # Configuração de logging para o ponto de entrada principal
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -22,6 +23,10 @@ def run_application():
     # --- CHAMADA PARA A GERAÇÃO DE DADOS ---
     logging.info("Gerando dados de transações simuladas...")
     generate_transactions_data(num_records=10000) # Vamos gerar 10 mil para ter um volume bom
+
+    # 2. Ingestão de Dados (NOVO PASSO)
+    logging.info("Iniciando a ingestão de dados para o banco de dados...")
+    ingest_data_to_db() # Chama a função de ingestão
 
     # --- FUTURAS ETAPAS DO PIPELINE SERÃO CHAMADAS AQUI ---
     # from src.ingestion.ingestor import ingest_data

@@ -21,10 +21,10 @@ CREATE DATABASE plataforma_qualidade_dados
 -- Demonstra a estrutura de dados brutos ou semi-processados.
 CREATE TABLE IF NOT EXISTS transactions (
     transaction_id VARCHAR(50) PRIMARY KEY, -- Identificador único da transação
-    account_id VARCHAR(50) NOT NULL,       -- ID da conta do cliente
+    account_id VARCHAR(50),       -- ID da conta do cliente
     transaction_date DATE NOT NULL,        -- Data da transação
     transaction_time TIME NOT NULL,        -- Hora da transação
-    amount DECIMAL(18, 2) NOT NULL,        -- Valor da transação (permite 2 casas decimais)
+    amount DECIMAL(18, 2),        -- Valor da transação (permite 2 casas decimais)
     currency VARCHAR(3) NOT NULL,          -- Moeda da transação (ex: BRL, USD)
     transaction_type VARCHAR(50),          -- Tipo de transação (ex: DEBITO, CREDITO, PIX)
     merchant_name VARCHAR(100),            -- Nome do comerciante/destinatário
