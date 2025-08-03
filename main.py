@@ -1,8 +1,9 @@
 # main.py
 import logging
 from src.utils.db_utils import test_db_connection
-from src.data_generation.generator import generate_transactions_data # Importe o gerador
-from src.ingestion.ingestor import ingest_data_to_db # Importe o ingestor
+from src.data_generation.generator import generate_transactions_data
+from src.ingestion.ingestor import ingest_data_to_db
+from src.validation.validator import run_data_validations
 
 # Configuração de logging para o ponto de entrada principal
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -27,6 +28,10 @@ def run_application():
     # 2. Ingestão de Dados (NOVO PASSO)
     logging.info("Iniciando a ingestão de dados para o banco de dados...")
     ingest_data_to_db() # Chama a função de ingestão
+
+    # --- 3. Validação de Dados ---
+    logging.info("Iniciando a validação de dados...")
+    run_data_validations() # Chama a função de validação
 
     # --- FUTURAS ETAPAS DO PIPELINE SERÃO CHAMADAS AQUI ---
     # from src.ingestion.ingestor import ingest_data
