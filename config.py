@@ -21,3 +21,12 @@ AWS_REGION = os.getenv("AWS_REGION", "us-east-1")
 # --- Caminhos de Arquivos e Pastas ---
 RAW_DATA_PATH = "data/raw/"
 PROCESSED_DATA_PATH = "data/processed/"
+
+# --- NOVA IMPLEMENTAÇÃO / ALTERAÇÃO DE CÓDIGO EXISTENTE ---
+# Definir o nome do arquivo de dados brutos padrão
+RAW_DATA_FILE = "transactions.csv" 
+# Certifique-se de que este nome corresponda ao arquivo gerado pelo seu generator.py
+# e que é o nome padrão que o ingestor deve procurar.
+
+# Configurações de Logging (se houver, manter)
+# Exemplo: LOG_FILE_PATH = os.path.join(BASE_DIR, 'logs', 'app.log')
