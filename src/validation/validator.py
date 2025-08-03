@@ -118,7 +118,7 @@ def run_data_validations(table_name: str = "transactions", log_table: str = "dat
             
             # --- Regra de Validação 5: Verificar categorias inválidas (exemplo de consistência de domínio) ---
             logging.info("Executando validação: Verificar categorias inválidas na coluna 'category'...")
-            valid_categories = ['ALIMENTACAO', 'COMPRAS', 'SERVICOS', 'TRANSPORTES', 'SAUDE', 'LAZER']
+            valid_categories = ['ALIMENTACAO', 'COMPRAS', 'SERVICOS', 'TRANSPORTES', 'SAUDE', 'LAZER', 'FINANCAS']
             # Para simular uma falha aqui, vamos supor que uma categoria nova "OUTROS" ou "DESCONHECIDO" apareça
             # ou que algum valor null/empty string não seja tratado. Nosso gerador só gera categorias válidas,
             # então esta regra pode não encontrar nada a menos que modifiquemos o gerador para criar categorias inválidas.
