@@ -5,6 +5,7 @@ from src.data_generation.generator import generate_transactions_data
 from src.ingestion.ingestor import ingest_data_to_db
 from src.validation.validator import run_data_validations
 from src.processing.processor import process_transactions_data
+from src.reporting.reporter import generate_quality_reports
 
 # Configuração de logging para o ponto de entrada principal
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -37,6 +38,10 @@ def run_application():
     # --- 4. Tratamento e Transformação de Dados (NOVO PASSO) ---
     logging.info("Iniciando o tratamento e transformação dos dados...")
     process_transactions_data() # Chama a função de processamento
+
+    # --- 5. Geração de Relatórios e Métricas (NOVO PASSO) ---
+    logging.info("Iniciando a geração de relatórios e métricas...")
+    generate_quality_reports() # Chama a função de relatório
 
     # --- FUTURAS ETAPAS DO PIPELINE SERÃO CHAMADAS AQUI ---
     # from src.ingestion.ingestor import ingest_data
