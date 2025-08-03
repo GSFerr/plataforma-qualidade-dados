@@ -47,3 +47,23 @@ CREATE INDEX IF NOT EXISTS idx_transactions_date ON transactions (transaction_da
 CREATE INDEX IF NOT EXISTS idx_transactions_account ON transactions (account_id);
 CREATE INDEX IF NOT EXISTS idx_validation_logs_transaction_id ON data_validation_logs (transaction_id);
 CREATE INDEX IF NOT EXISTS idx_validation_logs_rule ON data_validation_logs (validation_rule);
+
+
+-- Tabela para armazenar as transações financeiras processadas/limpas.
+-- Esta tabela reflete os dados após a aplicação das regras de qualidade.
+CREATE TABLE IF NOT EXISTS transactions_processed (
+    transaction_id VARCHAR(50) PRIMARY KEY,
+    account_id VARCHAR(50) NOT NULL,
+    transaction_date DATE NOT NULL,
+    transaction_time TIME NOT NULL,
+    amount DECIMAL(18, 2) NOT NULL,
+    currency VARCHAR(3) NOT NULL,
+    transaction_type VARCHAR(50),
+    merchant_name VARCHAR(100),
+    category VARCHAR(50) NOT NULL,
+    status VARCHAR(20)
+);
+
+-- Índices para otimização na tabela processada
+CREATE INDEX IF NOT EXISTS idx_processed_transactions_date ON transactions_processed (transaction_date);
+CREATE INDEX IF NOT EXISTS idx_processed_transactions_account ON transactions_processed (account_id);
