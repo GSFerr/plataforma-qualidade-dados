@@ -43,11 +43,6 @@ def run_application():
     logging.info("Iniciando a geração de relatórios e métricas...")
     generate_quality_reports() # Chama a função de relatório
 
-    # --- FUTURAS ETAPAS DO PIPELINE SERÃO CHAMADAS AQUI ---
-    # from src.ingestion.ingestor import ingest_data
-    # logging.info("Ingerindo dados de transações no banco de dados...")
-    # ingest_data()
-
     logging.info("Plataforma de qualidade de dados concluída com sucesso (fase inicial de geração de dados).")
 
 if __name__ == "__main__":
